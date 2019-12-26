@@ -79,13 +79,14 @@ public OnGameModeInit() {
 
 public OnGameModeExit() {
     DestroyLog(adminactionlog);
-    
+
     return 1;
 }
 
 public OnPlayerConnect(playerid) {
 
     gPlayerBitFlag[playerid] = PlayerFlags:0;
+    playerData[playerid][pCMDPermission] = CMD_PLAYER;
     playerData[playerid][pAdmin] = CMD_PLAYER;
 
 	new query[90];
