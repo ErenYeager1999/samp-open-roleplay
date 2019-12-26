@@ -25,11 +25,22 @@ public OnPlayerLogin(playerid)
 	if(cache_num_rows())
 	{
 		cache_get_value_index(0, 0, pPass, 129);
-		cache_get_value_index_int(0, 1, PlayerData[playerid][pSQLID]);
+		cache_get_value_index_int(0, 1, playerData[playerid][pSQLID]);
 		
         if (strequal(unhashed_pass, pPass, true)) {
             DeletePVar(playerid, "Unhashed_Pass");
 
+            cache_get_value_name_int(0, "admin", playerData[playerid][pAdmin]);
+
+            if (playerData[playerid][pAdmin])
+            {
+                SendClientMessageEx(playerid, COLOR_WHITE, "SERVER: คุณเข้าสู่ระบบเป็นแอดมินระดับ %i", playerData[playerid][pAdmin]);
+            }
+
+            syncAdmin(playerid);
+
+            BitFlag_On(gPlayerBitFlag[playerid], IS_LOGGED);
+            
             // ShowCharacterSelection(playerid);
             SetSpawnInfo(playerid, NO_TEAM, 1, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0);
 	        SpawnPlayer(playerid);

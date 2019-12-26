@@ -1,7 +1,8 @@
 enum E_PLAYER_DATA
 {
     pSQLID,
-    pAdmin
+    pAdmin,
+    pCMDPermission,
 };
 
-new PlayerData[MAX_PLAYERS][E_PLAYER_DATA];
+new playerData[MAX_PLAYERS][E_PLAYER_DATA];

@@ -12,6 +12,15 @@
 #include <a_mysql>      // pBlueG/SA-MP-MySQL 
 #include <PAWN.CMD>     // urShadow/Pawn.CMD
 #include <easyDialog>   // aktah/easyDialog
+#include <log-plugin>   // maddinat0r/samp-log
+
+
+/*======================================================================================================
+										[Declarations]
+=======================================================================================================*/
+
+new
+    Logger:adminactionlog;
 
 //========================[ Modules ]========================
 
@@ -63,12 +72,21 @@ public OnGameModeInit() {
 	DisableInteriorEnterExits();
 	EnableStuntBonusForAll(0);
 
+    adminactionlog = CreateLog("server/admin_action");
+
+    return 1;
+}
+
+public OnGameModeExit() {
+    DestroyLog(adminactionlog);
+    
     return 1;
 }
 
 public OnPlayerConnect(playerid) {
 
-    PlayerData[playerid][pAdmin] = CMD_PLAYER;
+    gPlayerBitFlag[playerid] = PlayerFlags:0;
+    playerData[playerid][pAdmin] = CMD_PLAYER;
 
 	new query[90];
 	mysql_format(dbCon, query, sizeof(query), "SELECT COUNT(username) FROM `accounts` WHERE username = '%e'", ReturnPlayerName(playerid));
@@ -83,6 +101,9 @@ public OnPlayerRequestClass(playerid, classid) {
 }
 
 public OnPlayerSpawn(playerid) {
+
+	if (!BitFlag_Get(gPlayerBitFlag[playerid], IS_LOGGED))
+		Kick(playerid);
 
     TogglePlayerSpectating(playerid, false);
     
@@ -104,4 +125,36 @@ public OnPlayerText(playerid, text[]) {
 	printf("[%d]%s: %s", playerid, ReturnPlayerName(playerid), text);
 
 	return 0;
+}
+
+public OnPlayerCommandReceived(playerid, cmd[], params[], flags)
+{
+    if(!BitFlag_Get(gPlayerBitFlag[playerid], IS_LOGGED)) {
+		SendClientMessage(playerid, COLOR_LIGHTRED, "ACCESS DENIED: {FFFFFF}คุณต้องเข้าสู่ระบบก่อนที่จะใช้คำสั่ง");
+		return 0;
+	}
+    else if (!(flags & playerData[playerid][pCMDPermission]) && flags)
+    {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "ACCESS DENIED: {FFFFFF}คุณไม่ได้รับอนุญาตให้ใช้คำสั่งนี้");
+        return 0;
+    }
+
+    return 1;
+}
+
+public OnPlayerCommandPerformed(playerid, cmd[], params[], result, flags)
+{
+    if(result == -1)
+    {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "ERROR: {FFFFFF}เกิดข้อผิดพลาดในการใช้คำสั่ง");
+        return 0;
+    }
+
+	if(flags) { // Permission CMD
+		if (flags & playerData[playerid][pCMDPermission])
+		{
+			Log(adminactionlog, INFO, "%s: /%s %s", ReturnPlayerName(playerid), cmd, params);
+		}
+	}
+    return 1;
 }

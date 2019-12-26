@@ -59,3 +59,33 @@ ProxDetector(playerid, Float:radius, const str[])
 	}
 	return 1;
 }
+
+/**
+ *  ซิงค์สิทธิ์ผู้ดูแล
+ * @param {number} ไอดีผู้เล่น
+ */
+syncAdmin(playerid) {
+	switch(playerData[playerid][pAdmin]) {
+		case 1: {
+			playerData[playerid][pCMDPermission] = CMD_TESTER | CMD_ADM_1;
+		}
+		case 2: {
+			playerData[playerid][pCMDPermission] = CMD_TESTER | CMD_ADM_1 | CMD_ADM_2;
+		}
+		case 3: {
+			playerData[playerid][pCMDPermission] = CMD_TESTER | CMD_ADM_1 | CMD_ADM_2 | CMD_ADM_3;
+		}
+		case 4: {
+			playerData[playerid][pCMDPermission] = CMD_TESTER | CMD_ADM_1 | CMD_ADM_2 | CMD_ADM_3 | CMD_LEAD_ADMIN;
+		}
+		case 5: {
+			playerData[playerid][pCMDPermission] = CMD_TESTER | CMD_ADM_1 | CMD_ADM_2 | CMD_ADM_3 | CMD_LEAD_ADMIN | CMD_MANAGEMENT;
+		}
+		case 6: {
+			playerData[playerid][pCMDPermission] = CMD_TESTER | CMD_ADM_1 | CMD_ADM_2 | CMD_ADM_3 | CMD_LEAD_ADMIN | CMD_MANAGEMENT | CMD_DEV;
+		}
+		default: {
+			playerData[playerid][pCMDPermission] = CMD_PLAYER;
+		}
+	}
+}
