@@ -1,5 +1,24 @@
 #include <a_samp>
 
+#undef MAX_PLAYERS
+#define MAX_PLAYERS (100)
+
+// YSI Include : pawn-lang/YSI-Includes
+#include <YSI\y_timers>
+#include <YSI\y_hooks>
+#include <YSI\y_va>
+
+#include <a_mysql>      // pBlueG/SA-MP-MySQL 
+
+//========================[ Modules ]========================
+
+// ตั้งค่า - สร้างไฟล์ database.pwn ด้วยตัวเองในไดเรกทอรี่ gamemodes/includes/configuration/..
+#include "includes/configuration/database.pwn"
+
+// ตัวหลัก
+#include "includes/variables.pwn"
+#include "includes/mysql/database.pwn"
+
 main()
 {
     print("\n----------------------------------");

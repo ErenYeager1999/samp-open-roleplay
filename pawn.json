@@ -4,6 +4,18 @@
 	"entry": "gamemodes/script.pwn",
 	"output": "gamemodes/script.amx",
 	"dependencies": [
-		"sampctl/samp-stdlib"
-	]
+		"sampctl/samp-stdlib",
+		"pawn-lang/YSI-Includes:v4.0.2",
+		"pBlueG/SA-MP-MySQL:R41-4"
+	],
+	"runtime": {
+		"version": "0.3.7",
+		"mode": "server",
+		"echo": "-",
+		"rcon_password": "password",
+		"port": 7777,
+		"hostname": "SA-MP Open Roleplay",
+		"maxplayers": 50,
+		"language": "TH"
+	}
 }
