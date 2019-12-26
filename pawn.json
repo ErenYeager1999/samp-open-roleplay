@@ -8,7 +8,8 @@
 		"aktah/YSI-Includes",
 		"pBlueG/SA-MP-MySQL:R41-4",
 		"Southclaws/samp-whirlpool:v1.0.0",
-		"aktah/easyDialog"
+		"aktah/easyDialog",
+		"urShadow/Pawn.CMD:3.2.0"
 	],
 	"runtime": {
 		"version": "0.3.7",

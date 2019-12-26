@@ -8,7 +8,8 @@
 #define COLOR_GRAD5         0xE3E3E3FF
 #define COLOR_GRAD6         0xF0F0F0FF
 #define COLOR_PURPLE        0xC2A2DAAA
-
+#define COLOR_GREEN         0x0D7304FF
+#define COLOR_DARKGREEN     0x33AA33FF
 //=======Embed Colors=======
 #define EMBED_RED           "{FF0000}"
 #define EMBED_WHITE         "{FFFFFF}"

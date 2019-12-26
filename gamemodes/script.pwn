@@ -10,6 +10,7 @@
 
 #include <whirlpool>    // Southclaws/samp-whirlpool
 #include <a_mysql>      // pBlueG/SA-MP-MySQL 
+#include <PAWN.CMD>     // urShadow/Pawn.CMD
 #include <easyDialog>   // aktah/easyDialog
 
 //========================[ Modules ]========================
@@ -33,6 +34,10 @@
 #include "includes/mysql/database.pwn"
 
 #include "includes/registration/login.pwn"
+
+#include "includes/commands/general.pwn"
+#include "includes/commands/admin.pwn"
+#include "includes/commands/roleplay.pwn"
 
 main()
 {
