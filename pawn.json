@@ -1,0 +1,9 @@
+{
+	"user": "Leaks",
+	"repo": "samp-open-roleplay",
+	"entry": "gamemodes/script.pwn",
+	"output": "gamemodes/script.amx",
+	"dependencies": [
+		"sampctl/samp-stdlib"
+	]
+}
