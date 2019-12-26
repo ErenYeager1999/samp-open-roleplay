@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2019 at 08:01 AM
+-- Generation Time: Dec 26, 2019 at 08:53 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.1.27
 
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `accounts`
 --
 
-DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL,
   `username` varchar(64) NOT NULL,
-  `password` varchar(129) NOT NULL
+  `password` varchar(129) NOT NULL,
+  `admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

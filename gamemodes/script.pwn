@@ -85,13 +85,17 @@ public OnGameModeExit() {
 
 public OnPlayerConnect(playerid) {
 
+    // เคลียร์ตัวแปรผู้เล่น
     gPlayerBitFlag[playerid] = PlayerFlags:0;
+
     playerData[playerid][pCMDPermission] = CMD_PLAYER;
     playerData[playerid][pAdmin] = CMD_PLAYER;
 
 	new query[90];
 	mysql_format(dbCon, query, sizeof(query), "SELECT COUNT(username) FROM `accounts` WHERE username = '%e'", ReturnPlayerName(playerid));
 	mysql_tquery(dbCon, query, "OnPlayerJoin", "d", playerid);
+
+    SendClientMessage(playerid, -1, "ยินดีต้อนรับเข้าสู่ "EMBED_YELLOW"O:RP");
     return 1;
 }
 

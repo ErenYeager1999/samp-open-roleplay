@@ -40,7 +40,7 @@ public OnPlayerLogin(playerid)
             syncAdmin(playerid);
 
             BitFlag_On(gPlayerBitFlag[playerid], IS_LOGGED);
-            
+
             // ShowCharacterSelection(playerid);
             SetSpawnInfo(playerid, NO_TEAM, 1, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0);
 	        SpawnPlayer(playerid);
@@ -65,7 +65,7 @@ Auth_Register(playerid) {
 
 timer ShowLoginCamera[400](playerid)
 {
-	if(IsPlayerConnected(playerid)) {
+	if(IsPlayerConnected(playerid) && BitFlag_Get(gPlayerBitFlag[playerid], IS_LOGGED)) {
 		SetPlayerVirtualWorld(playerid, playerid + 8000);
 		SetPlayerCameraPos(playerid, 2559.6138,-1719.2664,37.2296);
 		SetPlayerCameraLookAt(playerid, 2488.2173,-1665.3325,13.3438, CAMERA_CUT);
@@ -82,7 +82,7 @@ Dialog:DIALOG_LOGIN(playerid, response, listitem, inputtext[])
     WP_Hash(buf, sizeof (buf), inputtext);
     SetPVarString(playerid, "Unhashed_Pass",buf);
 
-    mysql_format(dbCon, query, sizeof(query), "SELECT password, id from `accounts` WHERE username = '%e'", ReturnPlayerName(playerid));
+    mysql_format(dbCon, query, sizeof(query), "SELECT password, id, admin from `accounts` WHERE username = '%e'", ReturnPlayerName(playerid));
     mysql_tquery(dbCon, query, "OnPlayerLogin", "d", playerid);
 
     return 1;

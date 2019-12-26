@@ -89,3 +89,15 @@ syncAdmin(playerid) {
 		}
 	}
 }
+
+/**
+ *  ตรวจสอบสิทธิ์ระหว่าง Flags
+ * @param {flags} ที่ต้องการเทียบ
+ * @param {flags} ตัวเปรียบเทียบ
+ */
+stock isFlagged(flags, flagValue) {
+    if ((flags & flagValue) == flagValue) {
+        return true;
+    }
+    return false;
+}

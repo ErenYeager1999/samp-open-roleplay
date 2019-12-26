@@ -12,6 +12,7 @@
 		"urShadow/Pawn.CMD:3.2.0",
 		"maddinat0r/samp-log:v0.5"
 	],
+	"local": true,
 	"runtime": {
 		"version": "0.3.7",
 		"mode": "server",
