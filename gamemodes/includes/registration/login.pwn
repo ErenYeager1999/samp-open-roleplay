@@ -67,7 +67,7 @@ Auth_Login(playerid) {
 
 Auth_Register(playerid) {
 
-	#if defined IN_GAME_CREATE_CHARACTER
+	#if defined IN_GAME_REGISTER
 
     	Dialog_Show(playerid, DIALOG_REGISTER, DIALOG_STYLE_PASSWORD, "สมัครสมาชิก", "บัญชีนี้ยังไม่มีอยู่ในฐานข้อมูล โปรดลงทะเบียนด้วยการกรอกรหัสผ่านด้านล่างนี้", "ลงทะเบียน", "ออก");
 
