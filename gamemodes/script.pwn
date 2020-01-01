@@ -50,6 +50,9 @@ new
 
 #include "includes/registration/login.pwn"
 
+#include "includes/systems/vehicles.pwn"
+#include "includes/systems/car_rental.pwn"
+
 #include "includes/commands/general.pwn"
 #include "includes/commands/admin.pwn"
 #include "includes/commands/roleplay.pwn"
@@ -96,6 +99,11 @@ public OnPlayerConnect(playerid) {
 
     playerData[playerid][pCMDPermission] = CMD_PLAYER;
     playerData[playerid][pAdmin] = CMD_PLAYER;
+    playerData[playerid][pCash] = 0;
+
+	// vehicles.pwn
+	gLastCar[playerid] = 0;
+	gPassengerCar[playerid] = 0;
 
 	new query[90];
 	mysql_format(dbCon, query, sizeof(query), "SELECT COUNT(username) FROM `accounts` WHERE username = '%e'", ReturnPlayerName(playerid));

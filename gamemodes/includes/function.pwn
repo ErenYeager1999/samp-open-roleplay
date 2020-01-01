@@ -1,4 +1,31 @@
 /**
+ *  จัดรูปแบบตัวเลขให้เป็นในรูปของเงิน `,`
+ * @param {number} เลขจำนวนเต็ม
+ */
+stock MoneyFormat(integer)
+{
+	new value[20], string[20];
+
+	valstr(value, integer);
+
+	new charcount;
+
+	for(new i = strlen(value); i >= 0; i --)
+	{
+		format(string, sizeof(string), "%c%s", value[i], string);
+		if(charcount == 3)
+		{
+			if(i != 0)
+				format(string, sizeof(string), ",%s", string);
+			charcount = 0;
+		}
+		charcount ++;
+	}
+
+	return string;
+}
+
+/**
  *  เรียกชื่อ Roleplay จากผู้เล่น ไม่มีขีดเส้นใต้ (Underscore)
  * @param {number} ไอดีผู้เล่น
  */

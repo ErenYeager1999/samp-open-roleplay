@@ -4,6 +4,7 @@ enum E_PLAYER_DATA
     pAdmin,
     pLastSkin,
     pLevel,
+    pCash,
 
     pCMDPermission,
 };
