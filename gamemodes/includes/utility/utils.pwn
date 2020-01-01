@@ -63,7 +63,6 @@ stock IsValidRoleplayName(const name[]) {
 	return 1;
 }
 
-// แก้ปัญหาผู้เล่นไม่เห็นข้อความก่อนถูกเตะ
 stock KickEx(playerid)
 {
 	return SetTimerEx("KickTimer", 100, false, "i", playerid);
