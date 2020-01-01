@@ -120,8 +120,8 @@ public OnPlayerSpawn(playerid) {
     
     SetPlayerVirtualWorld(playerid, 0);
     SetPlayerInterior(playerid, 0);
-    SetPlayerPos(playerid, 198.4090,-107.6075,1.5504);
-    SetPlayerFacingAngle(playerid, 86.0094);
+    SetPlayerPos(playerid, DEFAULT_SPAWN_LOCATION_X, DEFAULT_SPAWN_LOCATION_Y, DEFAULT_SPAWN_LOCATION_Z);
+    SetPlayerFacingAngle(playerid, DEFAULT_SPAWN_LOCATION_A);
 
     return 1;
 }
