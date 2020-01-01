@@ -1,7 +1,7 @@
 #include <YSI\y_hooks>
 
 //Character Selection:
-#define MAX_CHARSELECT_TEXTDRAW		(15) // +1 if display server logo
+#define MAX_CHARSELECT_TEXTDRAW		(20) // +1 if display server logo, +5 สำหรับปุ่ม New Character
 #define MAX_CHARSELECT 				(5)
 
 new PlayerText:charSelectTextDraw[MAX_PLAYERS][MAX_CHARSELECT_TEXTDRAW];
