@@ -10,7 +10,8 @@
 		"Southclaws/samp-whirlpool:v1.0.0",
 		"aktah/easyDialog",
 		"urShadow/Pawn.CMD:3.2.0",
-		"maddinat0r/samp-log:v0.5"
+		"maddinat0r/samp-log:v0.5",
+		"oscar-broman/strlib"
 	],
 	"local": true,
 	"runtime": {

@@ -13,6 +13,7 @@
 #include <PAWN.CMD>     // urShadow/Pawn.CMD
 #include <easyDialog>   // aktah/easyDialog
 #include <log-plugin>   // maddinat0r/samp-log
+#include <strlib>
 
 /*======================================================================================================
 										[Macros]
@@ -49,6 +50,7 @@ new
 #include "includes/mysql/database.pwn"
 
 #include "includes/registration/login.pwn"
+#include "includes/character/character.pwn"
 
 #include "includes/systems/vehicles.pwn"
 #include "includes/systems/car_rental.pwn"
@@ -99,12 +101,12 @@ public OnPlayerConnect(playerid) {
 
     playerData[playerid][pCMDPermission] = CMD_PLAYER;
     playerData[playerid][pAdmin] = CMD_PLAYER;
+
     playerData[playerid][pCash] = 0;
     playerData[playerid][pFaction] = 0;
     playerData[playerid][pLevel] = 0;
     playerData[playerid][pLastSkin] = 264;
     playerData[playerid][pTutorial] = false;
- 
 
     playerData[playerid][pUnscrambleID] = 0;
     playerData[playerid][pUnscrambling] = false;
@@ -124,6 +126,20 @@ public OnPlayerConnect(playerid) {
 
     SendClientMessage(playerid, -1, "ยินดีต้อนรับเข้าสู่ "EMBED_YELLOW"Southwood Roleplay");
     return 1;
+}
+
+public OnPlayerDisconnect(playerid, reason) {
+
+    static const szDisconnectReason[3][] = {"หลุด","ออกจากเกมส์","ถูกเตะ"};
+    ProxDetector(playerid, 20.0, sprintf("*** %s ออกจากเซิร์ฟเวอร์ (%s)", ReturnPlayerName(playerid), szDisconnectReason[reason]));
+
+    /*
+    // to add
+	if(reason == 0) 
+		playerData[playerid][pTimeout] = gettime();
+    */
+
+    CharacterSave(playerid);
 }
 
 public OnPlayerRequestClass(playerid, classid) {
