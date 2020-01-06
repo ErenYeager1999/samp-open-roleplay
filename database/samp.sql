@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2019 at 11:09 AM
+-- Generation Time: Jan 06, 2020 at 09:28 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.1.27
 
@@ -45,8 +45,11 @@ CREATE TABLE `characters` (
   `char_dbid` int(11) NOT NULL,
   `master_id` int(11) NOT NULL,
   `char_name` varchar(255) NOT NULL,
+  `pTutorial` tinyint(1) NOT NULL DEFAULT '0',
   `pLevel` int(11) NOT NULL DEFAULT '0',
-  `pLastSkin` int(11) NOT NULL DEFAULT '264'
+  `pLastSkin` int(11) NOT NULL DEFAULT '264',
+  `pFaction` int(11) DEFAULT '0',
+  `pCash` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
