@@ -417,7 +417,7 @@ CreateNewCharacter(playerid) {
 
 		characterPickTime[playerid] = 0;
 
-		Dialog_Show(playerid, DIALOG_CREATE_CHARACTER, DIALOG_STYLE_PASSWORD, "ตั้งชื่อตัวละคร", "ชื่อตัวละครของคุณต้องอยู่ในรูปแบบ Firstname_Lastname ไม่มีตัวเลขและอักษรพิเศษ\n\nป้อนชื่อตัวละครด้านล่างนี้:", "ยืนยัน", "ออก");
+		Dialog_Show(playerid, DIALOG_CREATE_CHARACTER, DIALOG_STYLE_INPUT, "ตั้งชื่อตัวละคร", "ชื่อตัวละครของคุณต้องอยู่ในรูปแบบ Firstname_Lastname ไม่มีตัวเลขและอักษรพิเศษ\n\nป้อนชื่อตัวละครด้านล่างนี้:", "ยืนยัน", "ออก");
 	
 	#else
 
@@ -440,7 +440,7 @@ Dialog:DIALOG_CREATE_CHARACTER(playerid, response, listitem, inputtext[])
 		mysql_tquery(dbCon, query, "OnCharacterCreated", "d", playerid);
 	}
 	else {
-		Dialog_Show(playerid, DIALOG_CREATE_CHARACTER, DIALOG_STYLE_PASSWORD, "ตั้งชื่อตัวละคร", "ชื่อตัวละครไม่ถูกต้องตามรูปแบบ !!\n\nชื่อตัวละครของคุณต้องอยู่ในรูปแบบ Firstname_Lastname ไม่มีตัวเลขและอักษรพิเศษ\n\nป้อนชื่อตัวละครด้านล่างนี้:", "ยืนยัน", "ออก");
+		Dialog_Show(playerid, DIALOG_CREATE_CHARACTER, DIALOG_STYLE_INPUT, "ตั้งชื่อตัวละคร", "ชื่อตัวละครไม่ถูกต้องตามรูปแบบ !!\n\nชื่อตัวละครของคุณต้องอยู่ในรูปแบบ Firstname_Lastname ไม่มีตัวเลขและอักษรพิเศษ\n\nป้อนชื่อตัวละครด้านล่างนี้:", "ยืนยัน", "ออก");
 	}
 	return 1;
 }
