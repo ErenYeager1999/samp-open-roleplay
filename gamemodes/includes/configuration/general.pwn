@@ -2,7 +2,8 @@
 #define GM_VERSION      "1.0.0" // x.y.z
 
 #define IN_GAME_REGISTER 			// สมัครสมาชิกในเกม
-//#define	IN_GAME_CREATE_CHARACTER	// สร้างตัวละครในเกม 
+#define	IN_GAME_CREATE_CHARACTER	// สร้างตัวละครในเกม 
+
 // ถ้าไม่ต้องการให้ `//` ปิดไว้
 
 /*	z - แก้ไขบัคเล็กน้อย
