@@ -2,7 +2,7 @@
 
 อย่าลืมที่จะให้ 🌟 ถ้าคุณ 💖 มัน
 
-Open Roleplay เป็นฐานโหมดเกม Heavy Text Based (สวมบทบาทด้วยการพิมพ์)
+Open Roleplay เป็นฐานโหมดเกม Heavy Text Based (สวมบทบาทด้วยการพิมพ์) สำหรับเซิร์ฟเวอร์ของผม [SW-RP](https://discord.gg/fg6YAeJ)
 Open Roleplay มีดิสคอร์ดเป็นของตัวเองอยู่ที่นี่ [Discord อย่างเป็นทางการ](https://discord.gg/KXGGVeg).
 
 ### 👉 เป็นสปอนเซอร์ให้กับโปรเจคนี้
