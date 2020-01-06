@@ -10,6 +10,8 @@
 #define COLOR_PURPLE        0xC2A2DAAA
 #define COLOR_GREEN         0x0D7304FF
 #define COLOR_DARKGREEN     0x33AA33FF
+#define COLOR_YELLOW        0xFFE104FF
+#define COLOR_YELLOW2       0xFFFF00FF
 //=======Embed Colors=======
 #define EMBED_RED           "{FF0000}"
 #define EMBED_WHITE         "{FFFFFF}"

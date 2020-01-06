@@ -49,6 +49,11 @@ stock IsRentalVehicle(vehicleid)
 	return 0;
 }
 
+stock IsPlayerRentVehicle(playerid, vehicleid)
+{
+	return RentCarKey[playerid] == vehicleid;
+}
+
 stock IsVehicleRented(vehicleid)
 {
 	foreach (new i : Player)

@@ -372,6 +372,9 @@ public Query_LoadCharacter(playerid)
 {
 	cache_get_value_name_int(0, "char_dbid", playerData[playerid][pDBID]);
 	cache_get_value_name_int(0, "pLastSkin", playerData[playerid][pLastSkin]);
+	cache_get_value_name_bool(0, "pTutorial", playerData[playerid][pTutorial]);
+	cache_get_value_name_int(0, "pFaction", playerData[playerid][pFaction]);
+	cache_get_value_name_int(0, "pCash", playerData[playerid][pCash]);
 	cache_get_value_name_int(0, "pLevel", playerData[playerid][pLevel]);
 
 	TogglePlayerSpectating(playerid, false);
@@ -385,7 +388,15 @@ public LoadCharacter(playerid)
 		string[128]
 	;
 	
+	ResetPlayerMoney(playerid);
 
+	if (!playerData[playerid][pTutorial]) {
+		// ยังไม่ผ่านบทเรียน / ตัวละครใหม่
+		playerData[playerid][pLevel] = 1;
+		playerData[playerid][pCash] = DEFAULT_PLAYER_CASH;
+		
+		playerData[playerid][pTutorial] = true;
+	}
     BitFlag_On(gPlayerBitFlag[playerid], IS_LOGGED);
 
 	SetPlayerScore(playerid, playerData[playerid][pLevel]);
@@ -401,7 +412,9 @@ public LoadCharacter(playerid)
 	{
 		SendClientMessageEx(playerid, COLOR_WHITE, "SERVER: คุณเข้าสู่ระบบเป็นแอดมินระดับ %i", playerData[playerid][pAdmin]);
 	}
+	
     syncAdmin(playerid);
+	GivePlayerMoney(playerid, playerData[playerid][pCash]);
 
 	SetPlayerSkin(playerid, playerData[playerid][pLastSkin]);
 	return 1;

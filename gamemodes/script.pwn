@@ -100,6 +100,19 @@ public OnPlayerConnect(playerid) {
     playerData[playerid][pCMDPermission] = CMD_PLAYER;
     playerData[playerid][pAdmin] = CMD_PLAYER;
     playerData[playerid][pCash] = 0;
+    playerData[playerid][pFaction] = 0;
+    playerData[playerid][pLevel] = 0;
+    playerData[playerid][pLastSkin] = 264;
+    playerData[playerid][pTutorial] = false;
+ 
+
+    playerData[playerid][pUnscrambleID] = 0;
+    playerData[playerid][pUnscrambling] = false;
+	playerData[playerid][pScrambleFailed] = 0;
+	playerData[playerid][pScrambleSuccess] = 0; 
+
+    playerData[playerid][pDuplicateKey] = 0;
+    playerData[playerid][pUnscramblerTime] = 0;
 
 	// vehicles.pwn
 	gLastCar[playerid] = 0;
@@ -109,7 +122,7 @@ public OnPlayerConnect(playerid) {
 	mysql_format(dbCon, query, sizeof(query), "SELECT COUNT(username) FROM `accounts` WHERE username = '%e'", ReturnPlayerName(playerid));
 	mysql_tquery(dbCon, query, "OnPlayerJoin", "d", playerid);
 
-    SendClientMessage(playerid, -1, "ยินดีต้อนรับเข้าสู่ "EMBED_YELLOW"O:RP");
+    SendClientMessage(playerid, -1, "ยินดีต้อนรับเข้าสู่ "EMBED_YELLOW"Southwood Roleplay");
     return 1;
 }
 
