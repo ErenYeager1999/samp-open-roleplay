@@ -23,7 +23,7 @@ public OnPlayerJoin(playerid)
 forward OnPlayerRegister(playerid);
 public OnPlayerRegister(playerid)
 {
-	SendClientMessage(playerid, 0x0033FFFF /*Blue*/, "ขอบคุณสำหรับการลงทะเบียน! คุณสามารถเข้าสู่ระบบได้แล้ว");
+	SendClientMessage(playerid, COLOR_YELLOW2, "ขอบคุณสำหรับการลงทะเบียน! คุณสามารถเข้าสู่ระบบได้แล้ว");
     Dialog_Show(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "เข้าสู่ระบบ", "ขอบคุณสำหรับการลงทะเบียน, %s\n\nป้อนรหัสผ่านด้านล่างนี้เพื่อเข้าใช้งาน:", "เข้าสู่ระบบ", "ออก", ReturnPlayerName(playerid));
 	return 1;
 }
