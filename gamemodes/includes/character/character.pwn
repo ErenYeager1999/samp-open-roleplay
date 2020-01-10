@@ -310,7 +310,7 @@ CreateNewCharacter(playerid) {
 	#else
 
 		SendClientMessage(playerid, COLOR_LIGHTRED, "บัญชีของคุณยังไม่ได้ตั้งค่าไว้ให้ใช้ในเกม (ยังไม่ได้ยื่นใบสมัคร/ตัวละครยังไม่ถูกยืนยัน)");
-		SendClientMessage(playerid, COLOR_LIGHTRED, "โปรดเข้าสู่ระบบด้วยบัญชีของคุณบน omp.sw-rp.com และลองใหม่อีกครั้ง");
+		SendClientMessage(playerid, COLOR_LIGHTRED, "โปรดเข้าสู่ระบบด้วยบัญชีของคุณบน yoursite.com และลองใหม่อีกครั้ง");
 		KickEx(playerid);
 
 	#endif

@@ -82,7 +82,7 @@ Auth_Register(playerid) {
 
 		SendClientMessageEx(playerid, COLOR_LIGHTRED, "ERROR: "EMBED_WHITE"ไม่พบบัญชีผู้ใช้ชื่อ %s", ReturnPlayerName(playerid));
 		SendClientMessage(playerid, COLOR_LIGHTRED, "[ ! ] "EMBED_WHITE"ตรวจสอบให้แน่ใจว่าคุณใช้ชื่อบัญชี(หลัก)ของคุณ ไม่ใช่ชื่อตัวละคร!");
-		SendClientMessage(playerid, COLOR_LIGHTRED, "[ ! ] "EMBED_WHITE"ถ้าต้องการสร้างบัญชีผู้ใช้โปรดไปที่ http://omp.sw-rp.com/");
+		SendClientMessage(playerid, COLOR_LIGHTRED, "[ ! ] "EMBED_WHITE"ถ้าต้องการสร้างบัญชีผู้ใช้โปรดไปที่ http://yoursite.com/");
 		KickEx(playerid);
 
 	#endif
