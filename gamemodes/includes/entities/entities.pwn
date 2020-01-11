@@ -8,9 +8,19 @@ enum E_PLAYER_DATA
     pLevel,
     pCash,
     pFaction,
-
+    pTimeout,
     pSpawnPoint,
     pSpawnHouse,
+
+    Float:pHealth,
+    Float:pArmour,
+    
+    Float:pLastPosX,
+    Float:pLastPosY,
+    Float:pLastPosZ,
+    pLastInterior,
+    pLastWorld,
+    
     // ตัวแปรชั่วคราว (ไม่บันทึก)
     pDuplicateKey,
 

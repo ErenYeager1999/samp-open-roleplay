@@ -108,8 +108,17 @@ public OnPlayerConnect(playerid) {
     playerData[playerid][pLastSkin] = 264;
     playerData[playerid][pTutorial] = false;
 
+    playerData[playerid][pLastInterior] = 
+    playerData[playerid][pLastWorld] = 
+    playerData[playerid][pTimeout] = 
     playerData[playerid][pSpawnPoint] = 
     playerData[playerid][pSpawnHouse] = 0;
+
+    playerData[playerid][pHealth] = 100.0;
+    playerData[playerid][pArmour] = 
+    playerData[playerid][pLastPosX] = 
+    playerData[playerid][pLastPosY] = 
+    playerData[playerid][pLastPosZ] = 0.0;
 
     playerData[playerid][pUnscrambleID] = 0;
     playerData[playerid][pUnscrambling] = false;
@@ -136,12 +145,20 @@ public OnPlayerDisconnect(playerid, reason) {
     static const szDisconnectReason[3][] = {"หลุด","ออกจากเกมส์","ถูกเตะ"};
     ProxDetector(playerid, 20.0, sprintf("*** %s ออกจากเซิร์ฟเวอร์ (%s)", ReturnPlayerName(playerid), szDisconnectReason[reason]));
 
-    /*
-    // to add
-	if(reason == 0) 
-		playerData[playerid][pTimeout] = gettime();
-    */
+    
+    // บันทึกว่าหลุด - เพื่อส่งกลับที่เดิมถ้าเข้ามาภายใน 30 นาที
+	if(reason == 0) {
+		playerData[playerid][pTimeout] = gettime(); // timestamp
 
+        printf("[%d] %s: timeout!", playerid, ReturnPlayerName(playerid));
+    }
+
+    CharacterSave(playerid);
+}
+
+CMD:timeout(playerid) {
+    playerData[playerid][pTimeout] = gettime(); // timestamp
+    printf("[%d] %s: timeout!", playerid, ReturnPlayerName(playerid));
     CharacterSave(playerid);
 }
 
@@ -156,7 +173,23 @@ public OnPlayerSpawn(playerid) {
 	if (!BitFlag_Get(gPlayerBitFlag[playerid], IS_LOGGED))
 		Kick(playerid);
 
-    TogglePlayerSpectating(playerid, false);
+    if (playerData[playerid][pTimeout]) {
+
+        // ตั้งค่าผู้เล่นให้กลับที่เดิมและสถานะบางอย่างเหมือนเดิม
+
+        SetPlayerVirtualWorld(playerid, playerData[playerid][pLastWorld]);
+        SetPlayerInterior(playerid, playerData[playerid][pLastInterior]);
+
+        SetPlayerPos(playerid, playerData[playerid][pLastPosX], playerData[playerid][pLastPosY], playerData[playerid][pLastPosZ]);
+
+        SetPlayerHealth(playerid, playerData[playerid][pHealth]);
+        SetPlayerArmour(playerid, playerData[playerid][pArmour]);
+
+        playerData[playerid][pTimeout] = 0;
+
+        GameTextForPlayer(playerid, "~r~crashed. ~w~returning to last position", 1000, 1);
+        return 1;
+    }
     
     switch (playerData[playerid][pSpawnPoint]) {
         case SPAWN_AT_DEFAULT: {

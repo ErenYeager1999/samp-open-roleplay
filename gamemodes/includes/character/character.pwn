@@ -238,7 +238,33 @@ CharacterSave(playerid, force = false, thread = MYSQL_TYPE_THREAD)
 		mysql_int(query, "pLevel",playerData[playerid][pLevel]);
  	   	mysql_int(query, "pSpawnPoint", playerData[playerid][pSpawnPoint]);
 		mysql_int(query, "pSpawnHouse", playerData[playerid][pSpawnHouse]);
-		
+
+		if (playerData[playerid][pTimeout]) {
+			/* 
+				บันทึกข้อมูลที่ต้องใช้หลังจากเข้าเกม
+			*/
+			GetPlayerHealth(playerid, playerData[playerid][pHealth]);
+			GetPlayerArmour(playerid, playerData[playerid][pArmour]);
+
+			mysql_flo(query, "pHealth", playerData[playerid][pHealth]);
+			mysql_flo(query, "pArmour", playerData[playerid][pArmour]);
+
+			GetPlayerPos(playerid, playerData[playerid][pLastPosX], playerData[playerid][pLastPosY], playerData[playerid][pLastPosZ]);
+
+			mysql_flo(query, "pLastPosX", playerData[playerid][pLastPosX]);
+			mysql_flo(query, "pLastPosY", playerData[playerid][pLastPosY]);
+			mysql_flo(query, "pLastPosZ", playerData[playerid][pLastPosZ]);
+
+			playerData[playerid][pLastInterior] = GetPlayerInterior(playerid);
+			playerData[playerid][pLastWorld] = GetPlayerVirtualWorld(playerid);
+
+			mysql_int(query, "pLastInterior",playerData[playerid][pLastInterior]);
+			mysql_int(query, "pLastWorld",playerData[playerid][pLastWorld]);
+			
+			printf("[%d] %s: save last data", playerid, ReturnPlayerName(playerid));
+		}
+		mysql_int(query, "pTimeout", playerData[playerid][pTimeout]);
+
 		mysql_finish(query);
 	}
 	return 1;
@@ -254,10 +280,30 @@ public Query_LoadCharacter(playerid)
 	cache_get_value_name_int(0, "pCash", playerData[playerid][pCash]);
 	cache_get_value_name_int(0, "pLevel", playerData[playerid][pLevel]);
 
+	cache_get_value_name_int(0, "pTimeout", playerData[playerid][pTimeout]);
+
+	new diff = gettime() - playerData[playerid][pTimeout];
+
+	if (diff > 0 && diff <= 1800) // diff = now - savetime | 60*30
+	{
+		/* 
+			โหลดข้อมูลที่ต้องใช้ตอนหลุด
+		*/	
+		cache_get_value_name_float(0, "pHealth", playerData[playerid][pHealth]);
+		cache_get_value_name_float(0, "pArmour", playerData[playerid][pArmour]);
+
+		cache_get_value_name_float(0, "pLastPosX", playerData[playerid][pLastPosX]);
+		cache_get_value_name_float(0, "pLastPosY", playerData[playerid][pLastPosY]);
+		cache_get_value_name_float(0, "pLastPosZ", playerData[playerid][pLastPosZ]);
+
+		cache_get_value_name_int(0, "pLastInterior", playerData[playerid][pLastInterior]);
+		cache_get_value_name_int(0, "pLastWorld", playerData[playerid][pLastWorld]);
+
+	} else playerData[playerid][pTimeout] = 0;
+
 	cache_get_value_name_int(0, "pSpawnPoint", playerData[playerid][pSpawnPoint]);
 	cache_get_value_name_int(0, "pSpawnHouse", playerData[playerid][pSpawnHouse]);
 
-	TogglePlayerSpectating(playerid, false);
 	return LoadCharacter(playerid);
 }
 
@@ -283,11 +329,13 @@ public LoadCharacter(playerid)
 	SetPlayerColor(playerid, 0xFFFFFFFF);
 	
     SetSpawnInfo(playerid, NO_TEAM, 1, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0);
-    SpawnPlayer(playerid);
+    TogglePlayerSpectating(playerid, false);
 	
-	format(string, sizeof(string), "~w~Welcome~n~~y~ %s", ReturnPlayerName(playerid));
-	GameTextForPlayer(playerid, string, 1000, 1);
-	
+	if (!playerData[playerid][pTimeout]) {
+		format(string, sizeof(string), "~w~Welcome~n~~y~ %s", ReturnPlayerName(playerid));
+		GameTextForPlayer(playerid, string, 1000, 1);
+	}
+
 	if (playerData[playerid][pAdmin])
 	{
 		SendClientMessageEx(playerid, COLOR_WHITE, "SERVER: คุณเข้าสู่ระบบเป็นแอดมินระดับ %i", playerData[playerid][pAdmin]);

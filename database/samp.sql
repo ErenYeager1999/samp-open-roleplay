@@ -52,7 +52,15 @@ CREATE TABLE `characters` (
   `pFaction` int(11) DEFAULT '0',
   `pCash` int(11) NOT NULL DEFAULT '0',
   `pSpawnPoint` int(11) NOT NULL DEFAULT '0',
-  `pSpawnHouse` int(11) NOT NULL DEFAULT '0'
+  `pSpawnHouse` int(11) NOT NULL DEFAULT '0',
+  `pTimeout` int(11) NOT NULL DEFAULT '0',
+  `pHealth` float NOT NULL DEFAULT '100.0',
+  `pArmour` float NOT NULL DEFAULT '0.0',
+  `pLastPosX` float NOT NULL DEFAULT '0.0',
+  `pLastPosY` float NOT NULL DEFAULT '0.0',
+  `pLastPosZ` float NOT NULL DEFAULT '0.0',
+  `pLastInterior` int(11) NOT NULL DEFAULT '0',
+  `pLastWorld` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
