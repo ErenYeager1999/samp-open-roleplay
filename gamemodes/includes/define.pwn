@@ -8,3 +8,7 @@
 #define BitFlag_Toggle(%0,%1)		((%0) ^= (%1))  // สลับค่า (สลับ จริง/เท็จ)
 
 #define	MAX_STRING					255
+
+#define	SPAWN_AT_DEFAULT			0
+#define	SPAWN_AT_FACTION			1
+#define	SPAWN_AT_HOUSE				2

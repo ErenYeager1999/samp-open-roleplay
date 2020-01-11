@@ -49,7 +49,9 @@ CREATE TABLE `characters` (
   `pLevel` int(11) NOT NULL DEFAULT '0',
   `pLastSkin` int(11) NOT NULL DEFAULT '264',
   `pFaction` int(11) DEFAULT '0',
-  `pCash` int(11) NOT NULL DEFAULT '0'
+  `pCash` int(11) NOT NULL DEFAULT '0',
+  `pSpawnPoint` int(11) NOT NULL DEFAULT '0',
+  `pSpawnHouse` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

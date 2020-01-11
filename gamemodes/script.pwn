@@ -108,6 +108,9 @@ public OnPlayerConnect(playerid) {
     playerData[playerid][pLastSkin] = 264;
     playerData[playerid][pTutorial] = false;
 
+    playerData[playerid][pSpawnPoint] = 
+    playerData[playerid][pSpawnHouse] = 0;
+
     playerData[playerid][pUnscrambleID] = 0;
     playerData[playerid][pUnscrambling] = false;
 	playerData[playerid][pScrambleFailed] = 0;
@@ -155,10 +158,20 @@ public OnPlayerSpawn(playerid) {
 
     TogglePlayerSpectating(playerid, false);
     
-    SetPlayerVirtualWorld(playerid, 0);
-    SetPlayerInterior(playerid, 0);
-    SetPlayerPos(playerid, DEFAULT_SPAWN_LOCATION_X, DEFAULT_SPAWN_LOCATION_Y, DEFAULT_SPAWN_LOCATION_Z);
-    SetPlayerFacingAngle(playerid, DEFAULT_SPAWN_LOCATION_A);
+    switch (playerData[playerid][pSpawnPoint]) {
+        case SPAWN_AT_DEFAULT: {
+            SetPlayerVirtualWorld(playerid, 0);
+            SetPlayerInterior(playerid, 0);
+            SetPlayerPos(playerid, DEFAULT_SPAWN_LOCATION_X, DEFAULT_SPAWN_LOCATION_Y, DEFAULT_SPAWN_LOCATION_Z);
+            SetPlayerFacingAngle(playerid, DEFAULT_SPAWN_LOCATION_A);
+        }
+        case SPAWN_AT_FACTION: {
+            // to add
+        }
+        case SPAWN_AT_HOUSE: {
+            // to add
+        }
+    }
 
     return 1;
 }

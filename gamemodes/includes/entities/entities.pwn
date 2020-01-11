@@ -9,6 +9,8 @@ enum E_PLAYER_DATA
     pCash,
     pFaction,
 
+    pSpawnPoint,
+    pSpawnHouse,
     // ตัวแปรชั่วคราว (ไม่บันทึก)
     pDuplicateKey,
 

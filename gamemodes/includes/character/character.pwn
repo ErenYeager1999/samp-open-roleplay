@@ -236,7 +236,9 @@ CharacterSave(playerid, force = false, thread = MYSQL_TYPE_THREAD)
 		mysql_int(query, "pFaction",playerData[playerid][pFaction]);
  	    mysql_int(query, "pCash",playerData[playerid][pCash]);
 		mysql_int(query, "pLevel",playerData[playerid][pLevel]);
- 	   
+ 	   	mysql_int(query, "pSpawnPoint", playerData[playerid][pSpawnPoint]);
+		mysql_int(query, "pSpawnHouse", playerData[playerid][pSpawnHouse]);
+		
 		mysql_finish(query);
 	}
 	return 1;
@@ -251,6 +253,9 @@ public Query_LoadCharacter(playerid)
 	cache_get_value_name_int(0, "pFaction", playerData[playerid][pFaction]);
 	cache_get_value_name_int(0, "pCash", playerData[playerid][pCash]);
 	cache_get_value_name_int(0, "pLevel", playerData[playerid][pLevel]);
+
+	cache_get_value_name_int(0, "pSpawnPoint", playerData[playerid][pSpawnPoint]);
+	cache_get_value_name_int(0, "pSpawnHouse", playerData[playerid][pSpawnHouse]);
 
 	TogglePlayerSpectating(playerid, false);
 	return LoadCharacter(playerid);
