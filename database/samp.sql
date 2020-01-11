@@ -25,13 +25,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accounts`
+-- Table structure for table `masters`
 --
 
-CREATE TABLE `accounts` (
-  `id` int(11) NOT NULL,
-  `username` varchar(64) NOT NULL,
-  `password` varchar(129) NOT NULL,
+CREATE TABLE `masters` (
+  `acc_dbid` int(11) NOT NULL,
+  `acc_name` varchar(64) NOT NULL,
+  `acc_pass` varchar(129) NOT NULL,
+  `acc_email` varchar(255) NOT NULL,
   `admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -59,10 +60,10 @@ CREATE TABLE `characters` (
 --
 
 --
--- Indexes for table `accounts`
+-- Indexes for table `masters`
 --
-ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `masters`
+  ADD PRIMARY KEY (`acc_dbid`);
 
 --
 -- Indexes for table `characters`
@@ -75,10 +76,10 @@ ALTER TABLE `characters`
 --
 
 --
--- AUTO_INCREMENT for table `accounts`
+-- AUTO_INCREMENT for table `masters`
 --
-ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `masters`
+  MODIFY `acc_dbid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `characters`

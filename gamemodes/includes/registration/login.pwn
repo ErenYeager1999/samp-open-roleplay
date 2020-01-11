@@ -110,7 +110,7 @@ Dialog:DIALOG_LOGIN(playerid, response, listitem, inputtext[])
     SetPVarString(playerid, "Unhashed_Pass",buf);
 
 	g_MysqlRaceCheck[playerid]++;
-    mysql_format(dbCon, query, sizeof(query), "SELECT password, id, username, admin from `accounts` WHERE username = '%e'", ReturnPlayerName(playerid));
+    mysql_format(dbCon, query, sizeof(query), "SELECT acc_pass, acc_dbid, acc_name, admin from `masters` WHERE acc_name = '%e'", ReturnPlayerName(playerid));
     mysql_tquery(dbCon, query, "OnPlayerLogin", "id", playerid, g_MysqlRaceCheck[playerid]);
 
     return 1;
@@ -127,7 +127,7 @@ Dialog:DIALOG_REGISTER(playerid, response, listitem, inputtext[])
     WP_Hash(buf, sizeof (buf), inputtext);
 
     new query[256];
-    mysql_format(dbCon, query, sizeof(query), "INSERT INTO `accounts` (username, password) VALUES('%e', '%e')", ReturnPlayerName(playerid), buf);
+    mysql_format(dbCon, query, sizeof(query), "INSERT INTO `masters` (acc_name, acc_pass) VALUES('%e', '%e')", ReturnPlayerName(playerid), buf);
 	mysql_tquery(dbCon, query, "OnPlayerRegister", "d", playerid);
 
     return 1;

@@ -10,5 +10,5 @@
 #define	MAX_STRING					255
 
 #define	SPAWN_AT_DEFAULT			0
-#define	SPAWN_AT_FACTION			1
-#define	SPAWN_AT_HOUSE				2
+#define	SPAWN_AT_HOUSE				1
+#define	SPAWN_AT_FACTION			2

@@ -124,7 +124,7 @@ public OnPlayerConnect(playerid) {
 	gPassengerCar[playerid] = 0;
 
 	new query[90];
-	mysql_format(dbCon, query, sizeof(query), "SELECT COUNT(username) FROM `accounts` WHERE username = '%e'", ReturnPlayerName(playerid));
+	mysql_format(dbCon, query, sizeof(query), "SELECT COUNT(acc_name) FROM `masters` WHERE acc_name = '%e'", ReturnPlayerName(playerid));
 	mysql_tquery(dbCon, query, "OnPlayerJoin", "d", playerid);
 
     SendClientMessage(playerid, -1, "ยินดีต้อนรับเข้าสู่ "EMBED_YELLOW"Southwood Roleplay");
