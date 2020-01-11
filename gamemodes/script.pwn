@@ -146,19 +146,11 @@ public OnPlayerDisconnect(playerid, reason) {
     ProxDetector(playerid, 20.0, sprintf("*** %s ออกจากเซิร์ฟเวอร์ (%s)", ReturnPlayerName(playerid), szDisconnectReason[reason]));
 
     
-    // บันทึกว่าหลุด - เพื่อส่งกลับที่เดิมถ้าเข้ามาภายใน 30 นาที
+    // บันทึกว่าหลุด
 	if(reason == 0) {
-		playerData[playerid][pTimeout] = gettime(); // timestamp
-
-        printf("[%d] %s: timeout!", playerid, ReturnPlayerName(playerid));
+		playerData[playerid][pTimeout] = gettime();
     }
 
-    CharacterSave(playerid);
-}
-
-CMD:timeout(playerid) {
-    playerData[playerid][pTimeout] = gettime(); // timestamp
-    printf("[%d] %s: timeout!", playerid, ReturnPlayerName(playerid));
     CharacterSave(playerid);
 }
 

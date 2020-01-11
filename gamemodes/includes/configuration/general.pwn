@@ -19,5 +19,6 @@
 #define DEFAULT_SPAWN_LOCATION_Z		-2.6797
 #define DEFAULT_SPAWN_LOCATION_A		0.0
 
+#define TIMEOUT_CRASH_TIME				30 // หน่วย: นาที | ผู้เล่นกลับมาภายในเวลาที่กำหนดจะถูกส่งกลับตำแหน่งล่าสุด
 #define DEFAULT_PLAYER_CASH				5000 // เงินเริ่มต้น
 #define	DEFAULT_PLAYER_LOGIN_ATTEMPT	5 // การจำกัดการพยายามเข้าสู่ระบบ

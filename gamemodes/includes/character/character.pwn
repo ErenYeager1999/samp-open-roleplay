@@ -284,7 +284,7 @@ public Query_LoadCharacter(playerid)
 
 	new diff = gettime() - playerData[playerid][pTimeout];
 
-	if (diff > 0 && diff <= 1800) // diff = now - savetime | 60*30
+	if (diff > 0 && diff <= 60 * TIMEOUT_CRASH_TIME) // diff = now - savetime
 	{
 		/* 
 			โหลดข้อมูลที่ต้องใช้ตอนหลุด
