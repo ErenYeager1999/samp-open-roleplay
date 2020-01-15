@@ -264,6 +264,12 @@ CharacterSave(playerid, force = false, thread = MYSQL_TYPE_THREAD)
 			printf("[%d] %s: save last data", playerid, ReturnPlayerName(playerid));
 		}
 		mysql_int(query, "pTimeout", playerData[playerid][pTimeout]);
+		
+		mysql_int(query, "pJob", playerData[playerid][pJob]);
+		mysql_int(query, "pSideJob", playerData[playerid][pSideJob]);
+		mysql_int(query, "pCareer", playerData[playerid][pCareer]);
+		mysql_int(query, "pPaycheck", playerData[playerid][pPaycheck]);
+		mysql_int(query, "pFishes", playerData[playerid][pFishes]);
 
 		mysql_finish(query);
 	}
@@ -303,6 +309,12 @@ public Query_LoadCharacter(playerid)
 
 	cache_get_value_name_int(0, "pSpawnPoint", playerData[playerid][pSpawnPoint]);
 	cache_get_value_name_int(0, "pSpawnHouse", playerData[playerid][pSpawnHouse]);
+
+	cache_get_value_name_int(0, "pJob", playerData[playerid][pJob]);
+	cache_get_value_name_int(0, "pSideJob", playerData[playerid][pSideJob]);
+	cache_get_value_name_int(0, "pCareer", playerData[playerid][pCareer]);
+	cache_get_value_name_int(0, "pPaycheck", playerData[playerid][pPaycheck]);
+	cache_get_value_name_int(0, "pFishes", playerData[playerid][pFishes]);
 
 	return LoadCharacter(playerid);
 }

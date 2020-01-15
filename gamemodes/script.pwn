@@ -109,6 +109,11 @@ public OnPlayerConnect(playerid) {
     playerData[playerid][pCMDPermission] = CMD_PLAYER;
     playerData[playerid][pAdmin] = CMD_PLAYER;
 
+
+    playerData[playerid][pJob] = 0;
+    playerData[playerid][pSideJob] = 0;
+    playerData[playerid][pCareer] = 0;
+    playerData[playerid][pPaycheck] = 0;
     playerData[playerid][pFishes] = 0;
     playerData[playerid][pCash] = 0;
     playerData[playerid][pFaction] = 0;

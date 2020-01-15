@@ -70,3 +70,38 @@ stock KickEx(playerid)
 
 forward KickTimer(playerid);
 public KickTimer(playerid) { return Kick(playerid); }
+
+stock GetNearestVehicle(playerid, except_player_vehicle = false)
+{
+ 	new
+	 	Float:fX,
+	 	Float:fY,
+	 	Float:fZ,
+	 	Float:fSX,
+	    Float:fSY,
+		Float:fSZ,
+		Float:fRadius,
+		playerVehicle = GetPlayerVehicleID(playerid);
+
+	for (new i = 1, j = GetVehiclePoolSize(); i <= j; i ++)
+	{
+	    if (!IsVehicleStreamedIn(i, playerid) || (except_player_vehicle && playerVehicle == i))
+		{
+			continue;
+	    }
+	    else
+	    {
+			GetVehiclePos(i, fX, fY, fZ);
+
+			GetVehicleModelInfo(GetVehicleModel(i), VEHICLE_MODEL_INFO_SIZE, fSX, fSY, fSZ);
+
+			fRadius = floatsqroot((fSX + fSX) + (fSY + fSY));
+
+			if (IsPlayerInRangeOfPoint(playerid, fRadius, fX, fY, fZ) && GetPlayerVirtualWorld(playerid) == GetVehicleVirtualWorld(i))
+			{
+				return i;
+			}
+		}
+	}
+	return INVALID_VEHICLE_ID;
+}

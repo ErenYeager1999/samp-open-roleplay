@@ -60,7 +60,12 @@ CREATE TABLE `characters` (
   `pLastPosY` float NOT NULL DEFAULT '0.0',
   `pLastPosZ` float NOT NULL DEFAULT '0.0',
   `pLastInterior` int(11) NOT NULL DEFAULT '0',
-  `pLastWorld` int(11) NOT NULL DEFAULT '0'
+  `pLastWorld` int(11) NOT NULL DEFAULT '0',
+  `pJob` int(11) NOT NULL DEFAULT '0',
+  `pSideJob` int(11) NOT NULL DEFAULT '0',
+  `pCareer` int(11) NOT NULL DEFAULT '0',
+  `pPaycheck` int(11) NOT NULL DEFAULT '0',
+  `pFishes` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

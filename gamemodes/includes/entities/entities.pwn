@@ -20,6 +20,13 @@ enum E_PLAYER_DATA
     Float:pLastPosZ,
     pLastInterior,
     pLastWorld,
+
+    pJob,
+    pSideJob,
+    pCareer,
+    
+    pPaycheck, // เงินเดือน - ต้องไปรับที่ธนาคาร
+    pFishes,
     
     // ตัวแปรชั่วคราว (ไม่บันทึก)
     pDuplicateKey,
