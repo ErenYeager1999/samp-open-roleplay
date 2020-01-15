@@ -8,6 +8,8 @@
 #include <YSI\y_hooks>
 #include <YSI\y_va>
 
+#include <streamer>      // maddinat0r/sscanf
+#include <sscanf2>      // maddinat0r/sscanf
 #include <whirlpool>    // Southclaws/samp-whirlpool
 #include <a_mysql>      // pBlueG/SA-MP-MySQL 
 #include <PAWN.CMD>     // urShadow/Pawn.CMD
@@ -52,8 +54,13 @@ new
 #include "includes/registration/login.pwn"
 #include "includes/character/character.pwn"
 
+#include "includes/systems/cooldown.pwn"
 #include "includes/systems/vehicles.pwn"
 #include "includes/systems/car_rental.pwn"
+#include "includes/systems/job.pwn"
+
+#include "includes/jobs/farmer.pwn"
+#include "includes/jobs/fisher.pwn"
 
 #include "includes/commands/general.pwn"
 #include "includes/commands/admin.pwn"
@@ -102,6 +109,7 @@ public OnPlayerConnect(playerid) {
     playerData[playerid][pCMDPermission] = CMD_PLAYER;
     playerData[playerid][pAdmin] = CMD_PLAYER;
 
+    playerData[playerid][pFishes] = 0;
     playerData[playerid][pCash] = 0;
     playerData[playerid][pFaction] = 0;
     playerData[playerid][pLevel] = 0;

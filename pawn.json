@@ -11,7 +11,9 @@
 		"aktah/easyDialog",
 		"urShadow/Pawn.CMD:3.2.0",
 		"maddinat0r/samp-log:v0.5",
-		"oscar-broman/strlib"
+		"oscar-broman/strlib",
+		"maddinat0r/sscanf:v2.8.3",
+		"samp-incognito/samp-streamer-plugin:v2.9.4"
 	],
 	"local": true,
 	"runtime": {
