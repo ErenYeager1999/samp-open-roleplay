@@ -1,7 +1,7 @@
 #include <YSI\y_hooks>
 
 //Character Selection:
-#define MAX_CHARSELECT_TEXTDRAW		(20) // +1 if display server logo, +5 สำหรับปุ่ม New Character
+#define MAX_CHARSELECT_TEXTDRAW		(20) // +1 if display server logo, +5 for New Character button
 #define MAX_CHARSELECT 				(5)
 
 new PlayerText:charSelectTextDraw[MAX_PLAYERS][MAX_CHARSELECT_TEXTDRAW];
@@ -427,3 +427,20 @@ public Query_SelectCharacter(playerid)
 	return 1;
 }
 
+stock GiveMoney(playerid, amount)
+{
+	playerData[playerid][pCash] += amount;
+	GivePlayerMoney(playerid, amount);
+	
+	/*new string[128]; 
+	
+	if(amount < 0) {
+		format(string, sizeof(string), "~r~$%d", amount);
+		GameTextForPlayer(playerid, string, 2000, 1);
+	}
+	else{
+		format(string, sizeof(string), "~g~$%d", amount);
+		GameTextForPlayer(playerid, string, 2000, 1);
+	}*/
+	return 1;
+}
