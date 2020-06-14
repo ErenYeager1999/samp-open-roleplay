@@ -51,3 +51,6 @@ samp.ban
 
 # ไฟล์ที่ให้สร้างขึ้นมาเอง
 gamemodes/includes/configuration/database.pwn
+
+scriptfiles/ntd
+models

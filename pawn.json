@@ -17,7 +17,7 @@
 	],
 	"local": true,
 	"runtime": {
-		"version": "0.3.7",
+		"version": "0.3.DL-R1",
 		"mode": "server",
 		"echo": "-",
 		"rcon_password": "password",
