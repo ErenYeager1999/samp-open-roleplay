@@ -6,6 +6,7 @@ enum E_PLAYER_DATA
     pLastSkin,
     bool:pTutorial,
     pLevel,
+    pExp,
     pCash,
     pFaction,
     pTimeout,

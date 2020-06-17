@@ -22,3 +22,6 @@
 #define TIMEOUT_CRASH_TIME				30 // หน่วย: นาที | ผู้เล่นกลับมาภายในเวลาที่กำหนดจะถูกส่งกลับตำแหน่งล่าสุด
 #define DEFAULT_PLAYER_CASH				5000 // เงินเริ่มต้น
 #define	DEFAULT_PLAYER_LOGIN_ATTEMPT	5 // การจำกัดการพยายามเข้าสู่ระบบ
+
+#define	USE_EXP_BAR						// เปิดการใช้งาน UI แสดงค่าประสบการณ์
+#define	EXP_MULTIPLE_RATE				2 // เรทการขึ้นเลเวล

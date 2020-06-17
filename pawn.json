@@ -5,17 +5,26 @@
 	"output": "gamemodes/script.amx",
 	"dependencies": [
 		"sampctl/samp-stdlib",
+		"Zeex/samp-plugin-crashdetect",
 		"aktah/YSI-Includes",
-		"pBlueG/SA-MP-MySQL:R41-4",
-		"Southclaws/samp-whirlpool:v1.0.0",
+		"pBlueG/SA-MP-MySQL",
+		"Southclaws/samp-whirlpool",
 		"aktah/easyDialog",
-		"urShadow/Pawn.CMD:3.2.0",
-		"maddinat0r/samp-log:v0.5",
+		"urShadow/Pawn.CMD",
+		"maddinat0r/samp-log",
 		"oscar-broman/strlib",
-		"maddinat0r/sscanf:v2.8.3",
-		"samp-incognito/samp-streamer-plugin:v2.9.4"
+		"maddinat0r/sscanf",
+		"samp-incognito/samp-streamer-plugin"
 	],
 	"local": true,
+	"builds": [
+		{
+			"name": "main",
+			"includes": [
+				"includes"
+			]
+		}
+	],
 	"runtime": {
 		"version": "0.3.DL-R1",
 		"mode": "server",

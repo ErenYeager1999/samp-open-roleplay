@@ -365,7 +365,7 @@ CMD:engine(playerid, params[])
 	return 1;
 }
 
-alias:unscramble("uns");
+alias:unscramble("uns")
 CMD:unscramble(playerid, params[])
 {
 	if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER)

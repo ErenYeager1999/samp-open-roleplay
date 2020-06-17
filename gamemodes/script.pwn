@@ -3,6 +3,8 @@
 #undef MAX_PLAYERS
 #define MAX_PLAYERS (100)
 
+#include <progress2>    // Southclaws/progress2
+
 // YSI Include : aktah/YSI-Includes
 #include <YSI\y_timers>
 #include <YSI\y_hooks>
@@ -119,6 +121,7 @@ public OnPlayerConnect(playerid) {
     playerData[playerid][pCash] = 0;
     playerData[playerid][pFaction] = 0;
     playerData[playerid][pLevel] = 0;
+    playerData[playerid][pExp] = 0;
     playerData[playerid][pLastSkin] = 264;
     playerData[playerid][pTutorial] = false;
 

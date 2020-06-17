@@ -53,7 +53,7 @@ CMD:dolow(playerid, params[])
 	return 1;
 }
 
-alias:local("l", "t");
+alias:local("l", "t")
 CMD:local(playerid, params[])
 {
 	if (isnull(params))
@@ -92,7 +92,7 @@ CMD:low(playerid, params[])
 	return 1;
 }
 
-alias:shout("s");
+alias:shout("s")
 CMD:shout(playerid, params[])
 {
 	if (isnull(params))

@@ -48,6 +48,7 @@ CREATE TABLE `characters` (
   `char_name` varchar(255) NOT NULL,
   `pTutorial` tinyint(1) NOT NULL DEFAULT '0',
   `pLevel` int(11) NOT NULL DEFAULT '0',
+  `pExp` int(11) NOT NULL DEFAULT '0',
   `pLastSkin` int(11) NOT NULL DEFAULT '264',
   `pFaction` int(11) DEFAULT '0',
   `pCash` int(11) NOT NULL DEFAULT '0',

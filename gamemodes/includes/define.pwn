@@ -12,3 +12,6 @@
 #define	SPAWN_AT_DEFAULT			0
 #define	SPAWN_AT_HOUSE				1
 #define	SPAWN_AT_FACTION			2
+
+#define	GetPlayerMaxEXP(%0) \
+	(playerData[%0][pLevel] + 1) * EXP_MULTIPLE_RATE
