@@ -6,7 +6,7 @@
 	"dependencies": [
 		"sampctl/samp-stdlib",
 		"Zeex/samp-plugin-crashdetect",
-		"aktah/YSI-Includes",
+		"pawn-lang/YSI-Includes",
 		"pBlueG/SA-MP-MySQL",
 		"Southclaws/samp-whirlpool",
 		"aktah/easyDialog",

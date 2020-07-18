@@ -5,10 +5,11 @@
 
 #include <progress2>    // Southclaws/progress2
 
-// YSI Include : aktah/YSI-Includes
-#include <YSI\y_timers>
-#include <YSI\y_hooks>
-#include <YSI\y_va>
+// YSI Include : pawn-lang/YSI-Includes
+#define YSI_NO_HEAP_MALLOC
+#include <YSI_Coding\y_timers>
+#include <YSI_Coding\y_hooks>
+#include <YSI_Coding\y_va>
 
 #include <streamer>      // maddinat0r/sscanf
 #include <sscanf2>      // maddinat0r/sscanf
