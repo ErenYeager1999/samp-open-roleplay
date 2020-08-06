@@ -1,5 +1,5 @@
 {
-	"user": "Leaks",
+	"user": "aktah",
 	"repo": "samp-open-roleplay",
 	"entry": "gamemodes/script.pwn",
 	"output": "gamemodes/script.amx",
@@ -14,19 +14,12 @@
 		"maddinat0r/samp-log",
 		"oscar-broman/strlib",
 		"maddinat0r/sscanf",
-		"samp-incognito/samp-streamer-plugin"
+		"samp-incognito/samp-streamer-plugin",
+		"aktah/SAMP-CEFix"
 	],
 	"local": true,
-	"builds": [
-		{
-			"name": "main",
-			"includes": [
-				"includes"
-			]
-		}
-	],
 	"runtime": {
-		"version": "0.3.DL-R1",
+		"version": "0.3.7",
 		"mode": "server",
 		"echo": "-",
 		"rcon_password": "password",
@@ -63,5 +56,14 @@
 		"conncookies": true,
 		"cookielogging": false,
 		"output": true
-	}
+	},
+	"builds": [
+		{
+			"name": "main",
+			"includes": [
+				"includes"
+			],
+			"compiler": {}
+		}
+	]
 }

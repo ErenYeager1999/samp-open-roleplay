@@ -16,6 +16,7 @@
 #include <whirlpool>    // Southclaws/samp-whirlpool
 #include <a_mysql>      // pBlueG/SA-MP-MySQL 
 #include <PAWN.CMD>     // urShadow/Pawn.CMD
+#include <CEFix>        // aktah/SAMP-CEFix
 #include <easyDialog>   // aktah/easyDialog
 #include <log-plugin>   // maddinat0r/samp-log
 #include <strlib>
