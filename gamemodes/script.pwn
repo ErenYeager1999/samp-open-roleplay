@@ -65,6 +65,7 @@ new
 #include "includes/systems/vehicles.pwn"
 #include "includes/systems/car_rental.pwn"
 #include "includes/systems/job.pwn"
+#include "includes/systems/private_car.pwn"
 
 #include "includes/jobs/farmer.pwn"
 #include "includes/jobs/fisher.pwn"

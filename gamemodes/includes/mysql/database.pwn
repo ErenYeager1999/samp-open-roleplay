@@ -13,6 +13,7 @@ hook OnGameModeInit() {
 		return 1;
 	}
 	else print("[SQL] Connection passed!");
+	
 	return 1;
 }
 

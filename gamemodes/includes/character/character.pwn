@@ -352,7 +352,7 @@ public LoadCharacter(playerid)
 	{
 		SendClientMessageEx(playerid, COLOR_WHITE, "SERVER: คุณเข้าสู่ระบบเป็นแอดมินระดับ %i", playerData[playerid][pAdmin]);
 	}
-
+	syncPrivateCar(playerid);
     syncAdmin(playerid);
 	GivePlayerMoney(playerid, playerData[playerid][pCash]);
 
