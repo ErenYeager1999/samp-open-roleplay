@@ -3,23 +3,27 @@
 #undef MAX_PLAYERS
 #define MAX_PLAYERS (100)
 
-#include <progress2>    // Southclaws/progress2
-
 // YSI Include : pawn-lang/YSI-Includes
 #define YSI_NO_HEAP_MALLOC
 #include <YSI_Coding\y_timers>
 #include <YSI_Coding\y_hooks>
 #include <YSI_Coding\y_va>
 
-#include <streamer>      // maddinat0r/sscanf
+#include <streamer>     // maddinat0r/sscanf
 #include <sscanf2>      // maddinat0r/sscanf
 #include <whirlpool>    // Southclaws/samp-whirlpool
 #include <a_mysql>      // pBlueG/SA-MP-MySQL 
-#include <PAWN.CMD>     // urShadow/Pawn.CMD
-#include <CEFix>        // aktah/SAMP-CEFix
+#include <Pawn.CMD>     // katursis/Pawn.CMD
+#include <Pawn.RakNet>  // katursis/Pawn.RakNet
+#include <io>           // aktah/io
+#define cec_auto
+#include <cec>          // aktah/cec
 #include <easyDialog>   // aktah/easyDialog
 #include <log-plugin>   // maddinat0r/samp-log
+// #include <samp_bcrypt>  // Sreyas-Sreelal/samp-bcrypt
 #include <strlib>
+
+#include "config.inc"
 
 /*======================================================================================================
 										[Macros]
@@ -38,7 +42,6 @@ new
 =======================================================================================================*/
 
 // ตั้งค่า
-#include "includes/configuration/general.pwn"
 #include "includes/configuration/database.pwn" // สร้างไฟล์ database.pwn ด้วยตัวเองในไดเรกทอรี่ gamemodes/includes/configuration/..
 
 // อรรถประโยชน์
@@ -62,7 +65,6 @@ new
 #include "includes/systems/vehicles.pwn"
 #include "includes/systems/car_rental.pwn"
 #include "includes/systems/job.pwn"
-#include "includes/systems/ui.pwn"
 
 #include "includes/jobs/farmer.pwn"
 #include "includes/jobs/fisher.pwn"

@@ -1,5 +1,5 @@
 #define GM_HOST_NAME    "SA-MP Open Roleplay"
-#define GM_VERSION      "1.0.0" // x.y.z
+#define GM_VERSION      "2.0.0" // x.y.z
 
 #define IN_GAME_REGISTER 			// สมัครสมาชิกในเกม
 #define	IN_GAME_CREATE_CHARACTER	// สร้างตัวละครในเกม 

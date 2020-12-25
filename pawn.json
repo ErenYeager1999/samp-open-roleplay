@@ -10,12 +10,14 @@
 		"pBlueG/SA-MP-MySQL",
 		"Southclaws/samp-whirlpool",
 		"aktah/easyDialog",
-		"urShadow/Pawn.CMD",
+		"katursis/Pawn.CMD",
+		"katursis/Pawn.RakNet",
 		"maddinat0r/samp-log",
 		"oscar-broman/strlib",
 		"maddinat0r/sscanf",
 		"samp-incognito/samp-streamer-plugin",
-		"aktah/SAMP-CEFix"
+		"aktah/io",
+		"aktah/cec"
 	],
 	"local": true,
 	"runtime": {
@@ -25,7 +27,7 @@
 		"rcon_password": "password",
 		"port": 7777,
 		"hostname": "SA-MP Open Roleplay",
-		"maxplayers": 50,
+		"maxplayers": 100,
 		"language": "TH",
 		"mapname": "San Andreas",
 		"weburl": "www.sa-mp.com",

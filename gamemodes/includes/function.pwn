@@ -1,7 +1,6 @@
 /**
  *  ให้ค่าประสบการณ์กับผู้เล่นพร้อมอัปเดต UI
  * @param {amount} เลขจำนวนเต็ม
- * ใช้ฟังก์ชั่น UpdatePlayerEXPBar ที่อยู่ใน ui.pwn
  */
 stock GivePlayerExp(playerid, amount = 1) {
 	playerData[playerid][pExp] += amount;
@@ -12,10 +11,6 @@ stock GivePlayerExp(playerid, amount = 1) {
 		playerData[playerid][pExp] = levelup - playerData[playerid][pExp];
 		playerData[playerid][pLevel]++;
 	}
-
-	#if defined USE_EXP_BAR
-	UpdatePlayerEXPBar(playerid);
-	#endif
 }
 
 /**
