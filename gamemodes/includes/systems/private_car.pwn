@@ -247,29 +247,68 @@ CMD:giveplayercar(playerid, params[])
     return 1;
 }
 
-CMD:sellcar(playerid, params[])
+PrivateVehicle_FindIndex(playerid, vehicleid)
 {
-    if (PlayerPrivateSpawn[playerid] == INVALID_VEHICLE_ID)
-        return 1;
-
-    new id = -1;
-
     for(new x = 0; x != MAX_PLAYER_PRIVATE_CAR; x ++)
     {
-        if (PlayerPrivateSpawn[playerid] == PlayerPrivateCar[playerid][x][pPCar])
+        if (vehicleid == PlayerPrivateCar[playerid][x][pPCar])
         {
-            id = x;
-            break;
+            return x;
         }
     }
 
-    if (id != -1)
-    {
-        new query[128];
-        mysql_format(dbCon, query, sizeof query, "DELETE FROM `private_car` WHERE id = %d", PlayerPrivateCar[playerid][id][pPId]);
-        mysql_tquery(dbCon, query, "Query_DeleteCar", "ii", playerid, id);
-    }
+    return -1;
+}
 
+CMD:changecolor(playerid, params[])
+{
+    if (PlayerPrivateSpawn[playerid] == INVALID_VEHICLE_ID)
+       return SendClientMessage(playerid, COLOR_LIGHTRED, "คุณยังไม่ได้เรียกรถยนต์ส่วนตัว");
+
+    new color1, color2;
+
+    if (sscanf(params, "dd", color1, color2))
+        return SendClientMessage(playerid, COLOR_GRAD2, "/changecolor [c1] [c2]");
+
+    if (color1 < 0 || color1 > 255 || color2 < 0 || color2 > 255)
+        return SendClientMessage(playerid, COLOR_GRAD2, "color 0-255 only !");
+    
+    new id = PrivateVehicle_FindIndex(playerid, PlayerPrivateSpawn[playerid]);
+    if (id == -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "คุณยังไม่ได้เรียกรถยนต์ส่วนตัว");
+
+    PlayerPrivateCar[playerid][id][pPColor1] = color1;
+    PlayerPrivateCar[playerid][id][pPColor2] = color2;
+    
+    ChangeVehicleColor(PlayerPrivateSpawn[playerid], color1, color2);
+
+    return 1;
+}
+CMD:savecar(playerid, params[])
+{
+    if (PlayerPrivateSpawn[playerid] == INVALID_VEHICLE_ID)
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "คุณยังไม่ได้เรียกรถยนต์ส่วนตัว");
+    
+    new id = PrivateVehicle_FindIndex(playerid, PlayerPrivateSpawn[playerid]);
+    if (id == -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "คุณยังไม่ได้เรียกรถยนต์ส่วนตัว");
+
+    new query[128];
+    mysql_format(dbCon, query, sizeof query, "UPDATE `private_car` SET color1 = %d, color2 = %d WHERE id = %d", PlayerPrivateCar[playerid][id][pPColor1], PlayerPrivateCar[playerid][id][pPColor2], PlayerPrivateCar[playerid][id][pPId]);
+    mysql_tquery(dbCon, query); 
+
+    return 1;
+}
+
+CMD:sellcar(playerid, params[])
+{
+    if (PlayerPrivateSpawn[playerid] == INVALID_VEHICLE_ID)
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "คุณยังไม่ได้เรียกรถยนต์ส่วนตัว");
+
+    new id = PrivateVehicle_FindIndex(playerid, PlayerPrivateSpawn[playerid]);
+    if (id == -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "คุณยังไม่ได้เรียกรถยนต์ส่วนตัว");
+
+    new query[128];
+    mysql_format(dbCon, query, sizeof query, "DELETE FROM `private_car` WHERE id = %d", PlayerPrivateCar[playerid][id][pPId]);
+    mysql_tquery(dbCon, query, "Query_DeleteCar", "ii", playerid, id);
     return 1;
 }
 
